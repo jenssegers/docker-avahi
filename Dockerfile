@@ -1,20 +1,7 @@
-FROM alpine:3.4
+FROM alpine
 
 ARG AVAHI_VERSION=0.6.32
-ARG AVAHI_RELEASE=r0
-ARG BUILD_DATE
-ARG VCS_REF
-
-LABEL maintainer niclas@mietz.io
-
-LABEL org.label-schema.build-date=$BUILD_DATE \
-      org.label-schema.docker.dockerfile="/Dockerfile" \
-      org.label-schema.license="MIT" \
-      org.label-schema.name="Docker Avahi" \
-      org.label-schema.url="https://github.com/solidnerd/docker-avahi/" \
-      org.label-schema.vcs-ref=$VCS_REF \
-      org.label-schema.vcs-url="https://github.com/solidnerd/docker-avahi.git" \
-      org.label-schema.vcs-type="Git"
+ARG AVAHI_RELEASE=r4
 
 RUN env && apk add --no-cache \
     avahi=$AVAHI_VERSION-$AVAHI_RELEASE \
